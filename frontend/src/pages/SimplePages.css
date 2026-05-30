@@ -1,0 +1,33 @@
+.simple-page {
+  min-height: 100vh;
+  background: #f8f9fa;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.simple-page h1 {
+  color: #1a1a2e;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.simple-page p {
+  color: #666;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.btn-back {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--primary-color, #2563eb);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.btn-back:hover {
+  background: #1d4ed8;
+}

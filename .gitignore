@@ -1,52 +1,30 @@
-# Prerequisites
-*.d
+```
+# Dependencies
+node_modules/
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# Environment variables
+.env
+.env.local
+.env.*
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# Build outputs
+dist/
+build/
+target/
 
-# Precompiled Headers
-*.gch
-*.pch
+# Logs
+*.log
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Python artifacts (if any Python files exist in project)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+```

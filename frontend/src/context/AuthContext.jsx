@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { authService, settingsService } from '../services/api';
+import { authService, websiteService } from '../services/api';
 
 const AuthContext = createContext(null);
 
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const checkAuth = async () => {
-    const token = authService.getToken();
+    const token = localStorage.getItem('token');
     if (token) {
       try {
         const userData = await authService.getCurrentUser();
@@ -36,21 +36,21 @@ export const AuthProvider = ({ children }) => {
 
   const loadSettings = async () => {
     try {
-      const settingsData = await settingsService.getSettings();
+      const settingsData = await websiteService.getSettings();
       setSettings(settingsData);
     } catch (error) {
       console.error('Failed to load settings:', error);
     }
   };
 
-  const login = async (credentials) => {
-    const userData = await authService.login(credentials);
-    setUser(userData);
+  const login = async (email, password) => {
+    const userData = await authService.login(email, password);
+    setUser(userData.user);
     return userData;
   };
 
-  const register = async (userData) => {
-    const result = await authService.register(userData);
+  const register = async (fullName, email, phone, password) => {
+    const result = await authService.register(fullName, email, phone, password);
     return result;
   };
 
@@ -61,7 +61,6 @@ export const AuthProvider = ({ children }) => {
 
   const updateUser = (updatedUser) => {
     setUser(updatedUser);
-    localStorage.setItem('user', JSON.stringify(updatedUser));
   };
 
   const refreshSettings = async () => {
